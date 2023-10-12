@@ -2,6 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import APIClient from "../services/apiClient";
 import ms from "ms";
+import { AxiosError } from "axios";
 
 export interface ScheduledPayment {
     payPerPeriod: string;
@@ -29,8 +30,8 @@ const apiClient =  new APIClient<MortgageData,CalculateMortgage>("/mortgage");
 const useMortgage = (inputValues?: CalculateMortgage) =>  useQuery<MortgageData,Error>({
                             queryKey: ["mortgage",inputValues],
                             queryFn: ()=> apiClient.post(inputValues),
-                            staleTime: ms('10m')
-                            
+                            staleTime: ms('10m'),
+                           
                         });
 
 export default useMortgage;

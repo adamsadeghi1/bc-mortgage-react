@@ -8,8 +8,11 @@ import {
   TableCaption,
   TableContainer,
   Spinner,
+  AlertIcon,
+  Alert,
 } from "@chakra-ui/react";
 import useMortgage, { CalculateMortgage } from "../hooks/useMortgage";
+import { AxiosError } from "axios";
 
 interface Props {
   calculateData?: CalculateMortgage;
@@ -21,8 +24,26 @@ const SchedulePayment = ({ calculateData }: Props) => {
   if (!calculateData) return null;
 
   if (isLoading) return <Spinner />;
-  if (error) return error.message;
 
+  if (error) {
+    if (error instanceof AxiosError) {
+      const newError = error.response ? error.response.data : error;
+
+      return (
+        <Alert status="error">
+          <AlertIcon />
+          {newError.message}
+        </Alert>
+      );
+    } else {
+      return (
+        <Alert status="error">
+          <AlertIcon />
+          {error.message}
+        </Alert>
+      );
+    }
+  }
   return (
     <TableContainer
       border="1px"

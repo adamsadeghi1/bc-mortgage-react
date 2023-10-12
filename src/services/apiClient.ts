@@ -15,6 +15,7 @@ class APIClient<Tres,Vreq> {
     post = (data?:Vreq,requestconfig?: AxiosRequestConfig)=>{
         return axiosInstance.post<Tres>(this.endpoint, data,requestconfig)
         .then(res=>res.data)
+        .catch(error=>Promise.reject(error))
     }
 
 

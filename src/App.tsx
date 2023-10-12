@@ -16,13 +16,17 @@ function App() {
     <Box padding={5}>
       <Grid
         gridTemplate={{
-          base: `"main main"
+          base: `"nav nav"
+                "main main"
                 "table table"`,
         }}
         gridTemplateColumns={{
           base: `1fr 1fr`,
         }}
       >
+        <GridItem area="nav" padding={2}>
+          <ColorModeSwitch />
+        </GridItem>
         <GridItem area="main">
           <SimpleGrid
             columns={{ sm: 1, md: 2, lg: 2, xl: 2 }}
@@ -31,7 +35,6 @@ function App() {
           >
             <Calculator calculate={(data) => setCalculateData(data)} />
             {calculateData && <MortgageShow calculateData={calculateData} />}
-            <ColorModeSwitch />
           </SimpleGrid>
         </GridItem>
 
