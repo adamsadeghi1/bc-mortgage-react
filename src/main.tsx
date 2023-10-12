@@ -9,7 +9,7 @@ import ms from "ms";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 2,
+      retry: 1,
       cacheTime: ms("4m"),
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,

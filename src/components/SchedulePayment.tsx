@@ -9,19 +9,16 @@ import {
   TableContainer,
   Spinner,
 } from "@chakra-ui/react";
-import useMortgage, {
-  CalculateMortgage,
-  ScheduledPayment,
-} from "../hooks/useMortgage";
+import useMortgage, { CalculateMortgage } from "../hooks/useMortgage";
 
 interface Props {
   calculateData?: CalculateMortgage;
 }
 
 const SchedulePayment = ({ calculateData }: Props) => {
-  if (!calculateData) return null;
-
   const { data, isLoading, error } = useMortgage(calculateData);
+
+  if (!calculateData) return null;
 
   if (isLoading) return <Spinner />;
   if (error) return error.message;

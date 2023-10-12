@@ -7,6 +7,7 @@ interface Props {
 const MortgageShow = ({ calculateData }: Props) => {
   const { data, isLoading, error } = useMortgage(calculateData);
 
+  if (!calculateData) return null;
   if (isLoading) return <Spinner />;
   if (error) return null;
 
@@ -19,17 +20,23 @@ const MortgageShow = ({ calculateData }: Props) => {
         borderColor="gray.200"
         padding={3}
       >
-        <Text color="gray.500">Payment Schedule:</Text>
+        <Text id="payment-type" color="gray.500">
+          Payment Schedule:
+        </Text>
         <Text id="type" color="gray.500" fontSize="2xl" fontWeight="bold">
-          {data.type !== undefined ? data.type : "--"}
+          {data.type}
         </Text>
 
-        <Text color="gray.500">Mortgage:</Text>
+        <Text id="mortgate-value" color="gray.500">
+          Mortgage:
+        </Text>
         <Text id="mortgage" color="gray.500" fontSize="2xl" fontWeight="bold">
           {data.mortgage !== undefined ? data.mortgage : "--"}
         </Text>
 
-        <Text color="gray.500">Mortgage Payment:</Text>
+        <Text id="mortgage-payment" color="gray.500">
+          Mortgage Payment:
+        </Text>
         <Text id="mortgage" color="gray.500" fontSize="2xl" fontWeight="bold">
           {data.mortgagePayment !== undefined ? data.mortgagePayment : "--"}
         </Text>
