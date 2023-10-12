@@ -2,12 +2,9 @@ import { Box, Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
 import { useState } from "react";
 import Calculator from "./components/Calculator";
 import ColorModeSwitch from "./components/ColorModeSwitch";
-import useMortgage, {
-  CalculateMortgage,
-  ScheduledPayment,
-} from "./hooks/useMortgage";
 import MortgageShow from "./components/MortgageShow";
 import SchedulePayment from "./components/SchedulePayment";
+import { CalculateMortgage } from "./hooks/useMortgage";
 
 function App() {
   const [calculateData, setCalculateData] = useState<CalculateMortgage>();

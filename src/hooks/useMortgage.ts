@@ -1,8 +1,7 @@
 
 import { useQuery } from "@tanstack/react-query";
-import APIClient from "../services/apiClient";
 import ms from "ms";
-import { AxiosError } from "axios";
+import APIClient from "../services/apiClient";
 
 export interface ScheduledPayment {
     payPerPeriod: string;
