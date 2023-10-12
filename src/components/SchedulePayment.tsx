@@ -2,15 +2,30 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
   TableCaption,
   TableContainer,
+  Spinner,
 } from "@chakra-ui/react";
+import useMortgage, {
+  CalculateMortgage,
+  ScheduledPayment,
+} from "../hooks/useMortgage";
 
-const SchedulePayment = () => {
+interface Props {
+  calculateData?: CalculateMortgage;
+}
+
+const SchedulePayment = ({ calculateData }: Props) => {
+  if (!calculateData) return null;
+
+  const { data, isLoading, error } = useMortgage(calculateData);
+
+  if (isLoading) return <Spinner />;
+  if (error) return error.message;
+
   return (
     <TableContainer
       border="1px"
@@ -29,12 +44,14 @@ const SchedulePayment = () => {
           </Tr>
         </Thead>
         <Tbody>
-          <Tr>
-            <Td>$539787.58</Td>
-            <Td>1</Td>
-            <Td>$212.42</Td>
-            <Td>$719.32</Td>
-          </Tr>
+          {data?.schedulPayments.map((payment, index) => (
+            <Tr key={index}>
+              <Td>{payment.remainingBalence}</Td>
+              <Td>{payment.paymentNumber}</Td>
+              <Td>{payment.paidSoFarFromPrinciple}</Td>
+              <Td>{payment.payPerPeriod}</Td>
+            </Tr>
+          ))}
         </Tbody>
       </Table>
     </TableContainer>

@@ -2,17 +2,19 @@ import axios, { AxiosRequestConfig } from "axios";
 
 
 const axiosInstance = axios.create({
-    baseURL:'http://localhost:3005/api/mortgage',
+    baseURL:'http://localhost:3005/api/',
 });
 
-class APIClient<T> {
+class APIClient<Tres,Vreq> {
     endpoint : string;
     constructor(endpoint:string){
         this.endpoint =endpoint;
     }
 
-    getAll= (requestconfig?: AxiosRequestConfig)=>{
-       return axiosInstance.get<T[]>(this.endpoint,requestconfig).then(res=>res.data);
+
+    post = (data?:Vreq,requestconfig?: AxiosRequestConfig)=>{
+        return axiosInstance.post<Tres>(this.endpoint, data,requestconfig)
+        .then(res=>res.data)
     }
 
 
