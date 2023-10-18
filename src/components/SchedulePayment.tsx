@@ -30,14 +30,14 @@ const SchedulePayment = ({ calculateData }: Props) => {
       const newError = error.response ? error.response.data : error;
 
       return (
-        <Alert status="error">
+        <Alert status="error" marginY={3}>
           <AlertIcon />
           {newError.message}
         </Alert>
       );
     } else {
       return (
-        <Alert status="error">
+        <Alert status="error" marginY={3}>
           <AlertIcon />
           {error.message}
         </Alert>

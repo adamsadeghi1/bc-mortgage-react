@@ -25,11 +25,7 @@ function App() {
           <ColorModeSwitch />
         </GridItem>
         <GridItem area="main">
-          <SimpleGrid
-            columns={{ sm: 1, md: 2, lg: 2, xl: 2 }}
-            spacing={6}
-            padding={2}
-          >
+          <SimpleGrid columns={{ sm: 1, md: 2, lg: 2, xl: 2 }} spacing={5}>
             <Calculator calculate={(data) => setCalculateData(data)} />
             {calculateData && <MortgageShow calculateData={calculateData} />}
           </SimpleGrid>

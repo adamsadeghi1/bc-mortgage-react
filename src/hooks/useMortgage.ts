@@ -21,6 +21,7 @@ interface MortgageData{
     type: string;
     mortgage: string;
     mortgagePayment: string;
+    paymentNumber: number;
     schedulPayments: ScheduledPayment[]
 }
 
