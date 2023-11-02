@@ -55,7 +55,7 @@ const SchedulePayment = ({ calculateData }: Props) => {
         <TableCaption>Payment Schedule</TableCaption>
         <Thead>
           <Tr>
-            <Th>Remaining Balence</Th>
+            <Th>Remaining Balance</Th>
             <Th>Payment Number</Th>
             <Th>Paid Principle</Th>
             <Th>Payment</Th>
@@ -64,7 +64,7 @@ const SchedulePayment = ({ calculateData }: Props) => {
         <Tbody>
           {data?.schedulPayments.map((payment, index) => (
             <Tr key={index}>
-              <Td>{payment.remainingBalence}</Td>
+              <Td>{payment.remainingBalance}</Td>
               <Td>{payment.paymentNumber}</Td>
               <Td>{payment.paidSoFarFromPrinciple}</Td>
               <Td>{payment.payPerPeriod}</Td>

@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 
 
 const axiosInstance = axios.create({
-    baseURL:'http://localhost:3005/api/',
+    baseURL:'http://localhost:5036/api/',
 });
 
 class APIClient<Tres,Vreq> {

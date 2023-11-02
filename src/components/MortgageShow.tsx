@@ -35,7 +35,7 @@ const MortgageShow = ({ calculateData }: Props) => {
         Mortgage Payment:
       </Text>
       <Text id="mortgage" color="gray.500" fontSize="2xl" fontWeight="bold">
-        {data?.mortgagePayment !== undefined ? data.mortgagePayment : "--"}
+        {data?.payment !== undefined ? data.payment : "--"}
       </Text>
       <Text id="payment-number" color="gray.500">
         Payment Number:

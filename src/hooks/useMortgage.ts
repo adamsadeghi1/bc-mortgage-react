@@ -6,7 +6,7 @@ import APIClient from "../services/apiClient";
 export interface ScheduledPayment {
     payPerPeriod: string;
     paymentNumber: number;
-    remainingBalence: string;
+    remainingBalance: string;
     paidSoFarFromPrinciple: string;
   }
 
@@ -20,7 +20,7 @@ export interface CalculateMortgage{
 interface MortgageData{
     type: string;
     mortgage: string;
-    mortgagePayment: string;
+    payment: string;
     paymentNumber: number;
     schedulPayments: ScheduledPayment[]
 }
