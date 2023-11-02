@@ -29,6 +29,14 @@ const SchedulePayment = ({ calculateData }: Props) => {
     if (error instanceof AxiosError) {
       const newError = error.response ? error.response.data : error;
 
+      if (error.response?.data && !error.response.data.message)
+        return (
+          <Alert status="error" marginY={3}>
+            <AlertIcon />
+            {error.response?.data}
+          </Alert>
+        );
+
       return (
         <Alert status="error" marginY={3}>
           <AlertIcon />
